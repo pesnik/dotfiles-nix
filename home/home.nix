@@ -18,6 +18,7 @@
     bat
     fzf
     htop
+    nerd-fonts.jetbrains-mono
   ];
 
   programs.home-manager.enable = true;
