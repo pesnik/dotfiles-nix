@@ -3,7 +3,7 @@
 {
   imports = [
     ./programs/zsh.nix
-    ./programs/neovim.nix
+    ./programs/nixvim.nix
     ./programs/git.nix
     ./programs/ghostty.nix
   ];
