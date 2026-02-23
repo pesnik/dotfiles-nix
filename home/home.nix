@@ -6,6 +6,7 @@
     ./programs/neovim.nix
     ./programs/git.nix
     ./programs/alacritty.nix
+    ./programs/ghostty.nix
   ];
 
   home.username = "pesnik";
