@@ -37,6 +37,7 @@
   environment.systemPackages = with pkgs; [
     vim
     git
+    tree
   ];
 
   programs.firefox.enable = true;
