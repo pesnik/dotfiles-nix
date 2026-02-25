@@ -1,7 +1,7 @@
 { inputs, pkgs, ... }:
 
 {
-  imports = [ inputs.nixvim.homeManagerModules.nixvim ];
+  imports = [ inputs.nixvim.homeModules.nixvim ];
 
   programs.nixvim = {
     enable = true;
@@ -13,6 +13,8 @@
     };
 
     plugins = {
+      web-devicons.enable = true;
+
       lualine.enable = true;
       telescope.enable = true;
       treesitter.enable = true;
