@@ -1,20 +1,16 @@
 {
   description = "pesnik's NixOS configuration";
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-
   outputs = { self, nixpkgs, home-manager, nixvim, ... }@inputs:
   let
     system = "x86_64-linux";
@@ -35,6 +31,14 @@
           }
         ];
       };
+    };
+
+    homeConfigurations."pesnik@PesnikOS" = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.${system};
+      extraSpecialArgs = { inherit inputs; };
+      modules = [
+        ./home/hosts/PesnikOS.nix
+      ];
     };
   };
 }
