@@ -12,7 +12,6 @@
   home.homeDirectory = "/home/pesnik";
 
   home.packages = with pkgs; [
-    less # because git diff requires this
     tmux
     ripgrep
     fd
