@@ -14,7 +14,13 @@
     };
 
     initContent = ''
-      # extra zsh config here
+        if [ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]; then
+          . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+        fi
+
+        export PATH="$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$PATH"
+
+        export PATH="$HOME/.npm-global/bin:$PATH"
     '';
   };
 }
