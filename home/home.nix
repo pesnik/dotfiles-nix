@@ -3,7 +3,6 @@
 {
   imports = [
     ./programs/zsh.nix
-    ./programs/hyprland.nix
     ./programs/nixvim.nix
     ./programs/git.nix
     ./programs/ghostty.nix

@@ -3,6 +3,7 @@
 {
   imports = [
     ../home.nix
+    ../programs/hyprland.nix
   ];
 
   # Machine-specific overrides go here
