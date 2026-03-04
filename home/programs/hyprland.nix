@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  home.file."/home/pesnik/.config/hypr" = {
+  home.file.".config/hypr" = {
     source = ../configs/hypr;
     recursive = true;
   };
