@@ -10,8 +10,12 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-  outputs = { self, nixpkgs, home-manager, nixvim, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nixvim, zen-browser, ... }@inputs:
   let
     system = "x86_64-linux";
   in
@@ -35,9 +39,17 @@
 
     homeConfigurations."pesnik@PesnikOS" = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.${system};
-      extraSpecialArgs = { inherit inputs; };
+      extraSpecialArgs = { inherit inputs; zen-browser = zen-browser.packages.${system}.default; };
       modules = [
         ./home/hosts/PesnikOS.nix
+      ];
+    };
+
+    homeConfigurations."pesnik@sandbox" = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.${system};
+      extraSpecialArgs = { inherit inputs; zen-browser = zen-browser.packages.${system}.default; };
+      modules = [
+        ./home/hosts/sandbox.nix
       ];
     };
   };
